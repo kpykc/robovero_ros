@@ -1,6 +1,8 @@
 # Robovero ROS nodes
 
 First set environment.
+Ensure that you have an access to port `/dev/ttyACM0` in Linux. For Debian/Ubuntu your user
+should belong to dialout group.
 
 To run code use next example (choose _use_mag:=true or false):
 
