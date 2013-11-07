@@ -1,0 +1,362 @@
+Panels:
+  - Class: rviz/Displays
+    Help Height: 0
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /Global Options1
+        - /Status1
+        - /cam_pcl21/Autocompute Value Bounds1
+        - /Imu2
+        - /Imu2/Status1
+        - /Imu2/Box properties1
+      Splitter Ratio: 0.539295
+    Tree Height: 943
+  - Class: rviz/Selection
+    Name: Selection
+  - Class: rviz/Tool Properties
+    Expanded:
+      - /2D Pose Estimate1
+      - /2D Nav Goal1
+      - /Publish Point1
+    Name: Tool Properties
+    Splitter Ratio: 0.588679
+  - Class: rviz/Time
+    Experimental: true
+    Name: Time
+    SyncMode: 2
+    SyncSource: ""
+  - Class: rviz/Views
+    Expanded:
+      - /Current View1
+    Name: Views
+    Splitter Ratio: 0.5
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.5
+      Cell Size: 1
+      Class: rviz/Grid
+      Color: 160; 160; 164
+      Enabled: true
+      Line Style:
+        Line Width: 0.03
+        Value: Lines
+      Name: Grid
+      Normal Cell Count: 0
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Plane: XY
+      Plane Cell Count: 10
+      Reference Frame: <Fixed Frame>
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: false
+      Marker Topic: /occupied_cells_vis_array
+      Name: MarkerArray
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: false
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud
+      Color: 255; 255; 255
+      Color Transformer: Intensity
+      Decay Time: 0
+      Enabled: false
+      Max Color: 255; 255; 255
+      Max Intensity: 754
+      Min Color: 0; 0; 0
+      Min Intensity: 109
+      Name: PointCloud
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.01
+      Style: Boxes
+      Topic: /assembled_cloud
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: false
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 204.547
+        Min Value: 12.9873
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: AxisColor
+      Decay Time: 0
+      Enabled: false
+      Max Color: 255; 255; 255
+      Max Intensity: 915
+      Min Color: 0; 0; 0
+      Min Intensity: 72
+      Name: cam_pcl2
+      Position Transformer: XYZ
+      Queue Size: 1
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.4
+      Style: Spheres
+      Topic: /cloud_out
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: false
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/LaserScan
+      Color: 255; 255; 255
+      Color Transformer: Intensity
+      Decay Time: 0
+      Enabled: false
+      Max Color: 255; 255; 255
+      Max Intensity: 754
+      Min Color: 0; 0; 0
+      Min Intensity: 109
+      Name: sick
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.01
+      Style: Flat Squares
+      Topic: /scan
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: false
+    - Class: octomap_rviz_plugin/OccupancyGrid
+      Enabled: false
+      Max. Octree Depth: 16
+      Name: OccupancyGrid
+      Octomap Binary Topic: /octomap_binary
+      Queue Size: 5
+      Value: false
+      Voxel Coloring: Z-Axis
+      Voxel Rendering: Occupied Voxels
+    - Alpha: 0.7
+      Class: octomap_rviz_plugin/OccupancyMap
+      Draw Behind: false
+      Enabled: false
+      Max. Octree Depth: 16
+      Name: OccupancyMap
+      Octomap Binary Topic: /octomap_full
+      Value: false
+    - Alpha: 0.7
+      Class: rviz/Map
+      Draw Behind: false
+      Enabled: false
+      Name: octomap_projection
+      Topic: /projected_map
+      Value: false
+    - Alpha: 0.7
+      Class: rviz/Map
+      Draw Behind: false
+      Enabled: false
+      Name: gmaping_2d_map
+      Topic: /map
+      Value: false
+    - Class: rviz/Image
+      Enabled: false
+      Image Topic: /eagle_camera/right/image_raw
+      Max Value: 1
+      Median window: 5
+      Min Value: 0
+      Name: eagle_right
+      Normalize Range: true
+      Queue Size: 2
+      Transport Hint: raw
+      Value: false
+    - Class: rviz/Image
+      Enabled: false
+      Image Topic: /eagle_camera/left/image_raw
+      Max Value: 1
+      Median window: 5
+      Min Value: 0
+      Name: eagle_left
+      Normalize Range: true
+      Queue Size: 2
+      Transport Hint: raw
+      Value: false
+    - Class: rviz/Image
+      Enabled: false
+      Image Topic: /eagle_camera/disp/raw
+      Max Value: 1
+      Median window: 5
+      Min Value: 0
+      Name: eagle_disp_bw
+      Normalize Range: true
+      Queue Size: 2
+      Transport Hint: raw
+      Value: false
+    - Class: rviz/Image
+      Enabled: false
+      Image Topic: /eagle_camera/disp/color
+      Max Value: 1
+      Median window: 5
+      Min Value: 0
+      Name: eagle_disp_color
+      Normalize Range: true
+      Queue Size: 2
+      Transport Hint: raw
+      Value: false
+    - Class: rviz/Image
+      Enabled: false
+      Image Topic: /cv_optflow/image_out
+      Max Value: 1
+      Median window: 5
+      Min Value: 0
+      Name: cv_optflow
+      Normalize Range: true
+      Queue Size: 2
+      Transport Hint: raw
+      Value: false
+    - Angle Tolerance: 0.1
+      Class: rviz/Odometry
+      Color: 255; 25; 0
+      Enabled: false
+      Keep: 100
+      Length: 1
+      Name: Odometry
+      Position Tolerance: 0.1
+      Topic: /odom
+      Value: false
+    - Alpha: 1
+      Buffer Length: 1
+      Class: rviz/Path
+      Color: 25; 255; 0
+      Enabled: false
+      Name: Path
+      Topic: ""
+      Value: false
+    - Alpha: 1
+      Class: rviz_plugin_tutorials/Imu
+      Color: 204; 51; 204
+      Enabled: false
+      History Length: 1
+      Name: Imu
+      Topic: ""
+      Value: false
+    - Arrow Length: 0.5
+      Class: rviz/PoseArray
+      Color: 255; 25; 0
+      Enabled: false
+      Name: amcl_particles
+      Topic: /particlecloud
+      Value: false
+    - Class: rviz/Image
+      Enabled: false
+      Image Topic: /cv_vpoints/out
+      Max Value: 1
+      Median window: 5
+      Min Value: 0
+      Name: cv_ops_nop
+      Normalize Range: true
+      Queue Size: 2
+      Transport Hint: raw
+      Value: false
+    - Acceleration properties:
+        Acc. vector alpha: 1
+        Acc. vector color: 255; 0; 0
+        Acc. vector scale: 1
+        Derotate acceleration: true
+        Enable acceleration: false
+      Axes properties:
+        Axes scale: 1
+        Enable axes: true
+      Box properties:
+        Box alpha: 1
+        Box color: 255; 0; 0
+        Enable box: true
+        x_scale: 0.1
+        y_scale: 0.1
+        z_scale: 0.1
+      Class: rviz_imu_plugin/Imu
+      Enabled: true
+      Name: Imu
+      Topic: /robovero/imu/data
+      Value: true
+  Enabled: true
+  Global Options:
+    Background Color: 48; 48; 48
+    Fixed Frame: /base_footprint
+  Name: root
+  Tools:
+    - Class: rviz/Interact
+      Hide Inactive Objects: true
+    - Class: rviz/MoveCamera
+    - Class: rviz/Select
+    - Class: rviz/FocusCamera
+    - Class: rviz/Measure
+    - Class: rviz/SetInitialPose
+      Topic: /initialpose
+    - Class: rviz/SetGoal
+      Topic: /move_base_simple/goal
+    - Class: rviz/PublishPoint
+      Single click: true
+      Topic: /clicked_point
+  Value: true
+  Views:
+    Current:
+      Class: rviz/Orbit
+      Distance: 1.27248
+      Focal Point:
+        X: 0
+        Y: 0
+        Z: 0
+      Name: Current View
+      Near Clip Distance: 0.01
+      Pitch: 0.670397
+      Target Frame: <Fixed Frame>
+      Value: Orbit (rviz)
+      Yaw: 1.4254
+    Saved: ~
+Window Geometry:
+  Displays:
+    collapsed: false
+  Height: 1176
+  Hide Left Dock: false
+  Hide Right Dock: false
+  QMainWindow State: 000000ff00000000fd0000000400000000000001aa0000040efc020000000afb0000001a006500610067006c0065005f0064006900730070005f006200770000000028000001840000001600fffffffc00000028000002750000000000fffffffaffffffff0100000002fb00000020006500610067006c0065005f0064006900730070005f0063006f006c006f00720000000000ffffffff000000a300fffffffb00000016006500610067006c0065005f007200690067006800740000000000000003300000007f00fffffffc000000280000040e000000fb0100001dfa000000010100000002fb0000000a005600690065007700730100000000ffffffff0000010f00fffffffb000000100044006900730070006c0061007900730100000000000001e90000010f00fffffffb0000001200530065006c0065006300740069006f006e00000001e10000009b0000006400fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001d2000001e500000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c0000026100000001000002b700000295fc0200000003fb0000001400630076005f006f007000740066006c006f00770000000129000002950000001600fffffffb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000001200530065006c0065006300740069006f006e010000025a000000b2000000000000000000000002000003a7000000e0fc0100000009fb0000000a0049006d0061006700650100000000000000d60000000000000000fb0000000a0049006d00610067006501000000dc000000d70000000000000000fb0000000a0049006d00610067006501000001b9000000d50000000000000000fb0000000a0049006d0061006700650100000000000000aa0000000000000000fb0000000a0049006d00610067006501000000b0000000de0000000000000000fb0000000a0049006d0061006700650100000194000000e70000000000000000fb00000014006500610067006c0065005f006c0065006600740000000000000001bb0000007700fffffffb0000001400630076005f006f00700073005f006e006f00700000000000000003a70000008100fffffffb0000000a00560069006500770073030000004e00000080000002e100000197000000030000074f0000003efc0100000002fb0000000800540069006d006501000000000000074f0000031b00fffffffb0000000800540069006d006501000000000000045000000000000000000000059f0000040e00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  Selection:
+    collapsed: false
+  Time:
+    collapsed: false
+  Tool Properties:
+    collapsed: false
+  Views:
+    collapsed: false
+  Width: 1871
+  X: 49
+  Y: 24
+  cv_ops_nop:
+    collapsed: false
+  cv_optflow:
+    collapsed: false
+  eagle_disp_bw:
+    collapsed: false
+  eagle_disp_color:
+    collapsed: false
+  eagle_left:
+    collapsed: false
+  eagle_right:
+    collapsed: false
