@@ -33,6 +33,9 @@ roslib.load_manifest('robovero_ros')
 
 import rospy
 
+import sys,struct,time,os
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.realpath(__file__)), '../lib/robovero'))
+
 from sensor_msgs.msg import Imu
 from geometry_msgs.msg import Vector3
 from std_msgs.msg import Bool

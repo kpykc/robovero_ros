@@ -1,0 +1,3 @@
+[submodule "lib/robovero"]
+	path = lib/robovero
+	url = git://github.com/robovero/python.git
