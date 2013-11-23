@@ -1,3 +1,6 @@
 [submodule "lib/robovero"]
 	path = lib/robovero
 	url = git://github.com/robovero/python.git
+[submodule "lib/robovero-python"]
+	path = lib/robovero-python
+	url = https://github.com/zhaoruibing/robovero-python.git
