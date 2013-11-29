@@ -1,0 +1,9 @@
+Header header
+float32 AD0_0
+float32 AD0_1
+float32 AD0_2
+float32 AD0_3
+float32 AD0_4
+float32 AD0_5
+float32 AD0_6
+float32 AD0_7
