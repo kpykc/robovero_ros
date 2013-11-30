@@ -11,6 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   std_srvs
   message_generation
+  dynamic_reconfigure
 )
 
 ## System dependencies are found with CMake's conventions
@@ -20,7 +21,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Uncomment this if the package has a setup.py. This macro ensures
 ## modules and global scripts declared therein get installed
 ## See http://ros.org/doc/api/catkin/html/user_guide/setup_dot_py.html
-# catkin_python_setup()
+ catkin_python_setup()
 
 ################################################
 ## Declare ROS messages, services and actions ##
@@ -46,10 +47,16 @@ find_package(catkin REQUIRED COMPONENTS
 ##   * uncomment the generate_messages entry below
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
+find_package(catkin REQUIRED dynamic_reconfigure)
+
+generate_dynamic_reconfigure_options(
+  cfg/ADCRate.cfg
+)
+
 ## Generate messages in the 'msg' folder
  add_message_files(
    FILES
-   robovero_adc.msg
+   adc.msg
 #   Message2.msg
  )
 
@@ -73,6 +80,7 @@ find_package(catkin REQUIRED COMPONENTS
    std_msgs
  )
 
+
 ###################################
 ## catkin specific configuration ##
 ###################################
@@ -85,7 +93,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES robovero_ros
-  CATKIN_DEPENDS rospy sensor_msgs std_msgs std_srvs message_runtime
+#  CATKIN_DEPENDS rospy sensor_msgs std_msgs std_srvs message_runtime dynamic_reconfigure 
 #  DEPENDS system_lib
 )
 
@@ -96,9 +104,9 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 # include_directories(include)
-include_directories(
-  ${catkin_INCLUDE_DIRS}
-)
+#include_directories(
+# ${catkin_INCLUDE_DIRS}
+#)
 
 ## Declare a cpp library
 # add_library(robovero_ros
@@ -111,6 +119,9 @@ include_directories(
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
 # add_dependencies(robovero_ros_node robovero_ros_generate_messages_cpp)
+
+# add_dependencies(robovero_ros_node robovero_ros_generate_messages_cpp)
+#add_dependencies(ros_adc ${PROJECT_NAME}_gencfg)
 
 ## Specify libraries to link a library or executable target against
 # target_link_libraries(robovero_ros_node
