@@ -72,8 +72,11 @@ respawn="false"
 launch-prefix="$(arg debug_launch_prefix) $(arg valgrind_launch_prefix) $(arg callgrind_launch_prefix)"
 machine="$(arg devhost)"
 output="screen"/>
-<node pkg="rviz" type="rviz" name="rviz" args="-d $(find seekurjr_run)/rviz/main.rviz" output="screen" />
 -->
+
+<!-- imu -->
+<node pkg="rviz" type="rviz" name="rviz" args="-d $(find robovero_ros)/rviz/robovero.rviz" machine="$(arg devhost)" output="screen" />
+
 <!--
 <include file="$(find seekurjr_run)/launch/rviz.xml"/>
 -->
