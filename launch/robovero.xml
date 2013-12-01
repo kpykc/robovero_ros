@@ -9,12 +9,12 @@
 <arg name="robot" default="seekurjr11" />
 <arg name="robot2" default="seekurjr12" />
 
-<arg name="devhost" default="bot" />
+<arg name="devhost" default="localhost" />
 
 <machine name="$(arg robot)" address="seekurjr11" user="root" env-loader="/root/rosws/setup.bash" timeout="40" default="true" />
 <machine name="$(arg robot2)" address="seekurjr12" user="root" env-loader="/root/rosws/setup.bash" timeout="40" default="true" />
 
-<machine name="$(arg devhost)" address="kpykc" user="kp" env-loader="/home/kp/rosws/setup.bash" timeout="40" default="true" />
+<machine name="$(arg devhost)" address="localhost" user="kp" env-loader="/home/kp/rosws/setup.bash" timeout="40" default="true" />
 
 <!-- debug configuration -->
 <arg name="debug" default="false"/>
@@ -36,23 +36,6 @@
 
 <!-- ACTUATORS -->
 
-<!-- p2os node driver -->
-<!--
-<node name="seekurjr" pkg="p2os_driver" type="p2os_node" respawn="false" 
-launch-prefix="$(arg debug_launch_prefix) $(arg valgrind_launch_prefix) $(arg callgrind_launch_prefix)"
-output="screen">
-        <remap from="pose" to="odom"/>
-</node>
--->
-
-<!-- rosaria node driver -->
-<node name="seekurjr" pkg="rosaria" type="RosAria" respawn="false" 
-launch-prefix="$(arg debug_launch_prefix) $(arg valgrind_launch_prefix) $(arg callgrind_launch_prefix)"
-machine="$(arg robot)"
-output="screen">
-        <remap from="pose" to="odom"/>
-        <param name="port" type="string" value="/dev/ttyS0" />
-</node>
 
 <!-- SENSORS -->
 
@@ -78,6 +61,7 @@ output="screen">
 <node name="monitoring" pkg="rqt_gui" type="rqt_gui"
 respawn="false"
 launch-prefix="$(arg debug_launch_prefix) $(arg valgrind_launch_prefix) $(arg callgrind_launch_prefix)"
+args="--perspective-file $(find robovero_ros)/rqt/robovero_adc.perspective"
 machine="$(arg devhost)"
 output="screen"/>
 
@@ -88,6 +72,7 @@ respawn="false"
 launch-prefix="$(arg debug_launch_prefix) $(arg valgrind_launch_prefix) $(arg callgrind_launch_prefix)"
 machine="$(arg devhost)"
 output="screen"/>
+<node pkg="rviz" type="rviz" name="rviz" args="-d $(find seekurjr_run)/rviz/main.rviz" output="screen" />
 -->
 <!--
 <include file="$(find seekurjr_run)/launch/rviz.xml"/>
