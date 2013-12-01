@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<launch>
+
+<!--
+	OPTIONS
+-->
+
+<!-- distributed system configuration options -->
+<arg name="robot" default="seekurjr11" />
+<arg name="robot2" default="seekurjr12" />
+
+<arg name="devhost" default="bot" />
+
+<machine name="$(arg robot)" address="seekurjr11" user="root" env-loader="/root/rosws/setup.bash" timeout="40" default="true" />
+<machine name="$(arg robot2)" address="seekurjr12" user="root" env-loader="/root/rosws/setup.bash" timeout="40" default="true" />
+
+<machine name="$(arg devhost)" address="kpykc" user="kp" env-loader="/home/kp/rosws/setup.bash" timeout="40" default="true" />
+
+<!-- debug configuration -->
+<arg name="debug" default="false"/>
+<arg if="$(arg debug)" name="debug_launch_prefix" value="xterm -rv -e gdb -ex run -args"/>
+<arg unless="$(arg debug)" name="debug_launch_prefix" value=""/>
+
+<arg name="valgrind" default="false"/>
+<arg if="$(arg valgrind)" name="valgrind_launch_prefix" value="valgrind --leak-check=full"/>
+<arg unless="$(arg valgrind)" name="valgrind_launch_prefix" value=""/>
+
+<arg name="callgrind" default="false"/>
+<arg if="$(arg callgrind)" name="callgrind_launch_prefix" value="valgrind --tool=callgrind --dump-instr=yes --simulate-cache=yes --collect-jumps=yes"/>
+<arg unless="$(arg callgrind)" name="callgrind_launch_prefix" value=""/>
+
+
+<!--
+	REMOTE
+-->
+
+<!-- ACTUATORS -->
+
+<!-- p2os node driver -->
+<!--
+<node name="seekurjr" pkg="p2os_driver" type="p2os_node" respawn="false" 
+launch-prefix="$(arg debug_launch_prefix) $(arg valgrind_launch_prefix) $(arg callgrind_launch_prefix)"
+output="screen">
+        <remap from="pose" to="odom"/>
+</node>
+-->
+
+<!-- rosaria node driver -->
+<node name="seekurjr" pkg="rosaria" type="RosAria" respawn="false" 
+launch-prefix="$(arg debug_launch_prefix) $(arg valgrind_launch_prefix) $(arg callgrind_launch_prefix)"
+machine="$(arg robot)"
+output="screen">
+        <remap from="pose" to="odom"/>
+        <param name="port" type="string" value="/dev/ttyS0" />
+</node>
+
+<!-- SENSORS -->
+
+<!-- camera #1 -->
+<!-- enable after removing x deps -->
+<!--
+<include file="$(find seekurjr_run)/launch/remote_camera.xml"/>
+-->
+
+<node name="robovero_adc" pkg="robovero_ros" type="ros_adc.py" respawn="false" output="screen">
+	<param name="rate" value="10"/>
+</node>
+
+<!-- MONITORING -->
+
+<!-- dev host cpu/mem usage monitor -->
+<node name="devhost_load" 	pkg="usage_monitor" type="usage_monitor_node"
+			machine="$(arg devhost)">
+		<param name="rate" value="4" />
+</node>
+
+<!-- rqt gui for monitoring -->
+<node name="monitoring" pkg="rqt_gui" type="rqt_gui"
+respawn="false"
+launch-prefix="$(arg debug_launch_prefix) $(arg valgrind_launch_prefix) $(arg callgrind_launch_prefix)"
+machine="$(arg devhost)"
+output="screen"/>
+
+<!-- rviz for monitoring -->
+<!--
+<node name="rviz_monitoring" pkg="rviz" type="rviz"
+respawn="false"
+launch-prefix="$(arg debug_launch_prefix) $(arg valgrind_launch_prefix) $(arg callgrind_launch_prefix)"
+machine="$(arg devhost)"
+output="screen"/>
+-->
+<!--
+<include file="$(find seekurjr_run)/launch/rviz.xml"/>
+-->
+
+<!-- dynamic reconfigure gui -->
+<!--
+<include file="$(find seekurjr_run)/launch/dynamic_reconfigure.xml"/>
+-->
+
+<!-- record data (NOTE: need to change topic names! remove rqt plot?) -->
+<!--
+<include file="$(find seekurjr_run)/launch/bag_record.xml"/>
+-->
+
+</launch>
+

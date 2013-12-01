@@ -41,7 +41,7 @@ from geometry_msgs.msg import Vector3
 from std_msgs.msg import Bool
 from std_srvs.srv import Empty, EmptyResponse
 
-#from PyKDL import Rotation
+from PyKDL import Rotation
 
 import serial
 import math
@@ -331,9 +331,9 @@ class rIMU:
             imu.angular_velocity_covariance = [0, 0, 0, 0, 0, 0, 0, 0, 1]
             imu.orientation_covariance = [0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.1]
 
-            #self.orientation += imu.angular_velocity.z * (imu.header.stamp - self.prev_time).to_sec()
-            #self.prev_time = imu.header.stamp
-            #(imu.orientation.x, imu.orientation.y, imu.orientation.z, imu.orientation.w) = Rotation.RotZ(self.orientation).GetQuaternion()
+            self.orientation += imu.angular_velocity.z * (imu.header.stamp - self.prev_time).to_sec()
+            self.prev_time = imu.header.stamp
+            (imu.orientation.x, imu.orientation.y, imu.orientation.z, imu.orientation.w) = Rotation.RotZ(self.orientation).GetQuaternion()
             self.pub.publish(imu)
 
 
